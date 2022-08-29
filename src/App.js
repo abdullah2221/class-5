@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import React from "react"
+import Parent from './Parent';
+import Parent2 from './Parent2';
+import CountContext from './CounterContext'
+import { useState } from 'react';
+import reducer from './CounterReducer';
 function App() {
+  let count = useState(0)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CountContext.Provider value={count}>
+        {/* <Parent/> */}
+        <Parent2 />
+      </CountContext.Provider>
+    </>
+
   );
 }
 
